@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding AI & Machine Learning</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                        mono: ['"Fira Code"', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        },
+                        accent: {
+                            cyan: '#06b6d4',
+                            purple: '#a855f7',
+                            emerald: '#10b981',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Outfit for display/headings & Plus Jakarta Sans for body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .font-display {
+            font-family: 'Outfit', sans-serif;
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-card-hover:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 0 25px -5px rgba(99, 102, 241, 0.25);
+        }
+        .glow-effect {
+            box-shadow: 0 0 50px -10px rgba(99, 102, 241, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-brand-500 selection:text-white relative overflow-x-hidden">
+
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-gradient-to-tr from-brand-600/20 via-purple-600/20 to-cyan-500/10 blur-[120px] pointer-events-none -z-10 rounded-full"></div>
+    <div class="fixed bottom-0 right-0 w-[500px] h-[500px] bg-indigo-900/10 blur-[150px] pointer-events-none -z-10 rounded-full"></div>
+
+    <header class="relative border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-cyan-400 flex items-center justify-center text-white font-bold shadow-lg shadow-brand-500/30">
+                    <i class="fa-solid fa-brain text-lg"></i>
+                </div>
+                <span class="font-display font-black text-2xl tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+                    AI Academy
+                </span>
+            </div>
+            <div class="flex items-center space-x-2 text-xs font-semibold px-3.5 py-1.5 rounded-full glass-card border-brand-500/30 text-brand-300 font-display tracking-wide uppercase">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Interactive Learning Platform</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16 flex-grow w-full">
+
+        <!-- Hero Welcome Section -->
+        <section class="text-center space-y-6 max-w-3xl mx-auto pt-4">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-300 text-xs font-display font-semibold tracking-wider uppercase shadow-inner">
+                <i class="fa-solid fa-sparkles text-brand-400"></i> Step into the Future
+            </div>
+            <h1 class="font-display text-4xl sm:text-6xl font-black tracking-tight leading-tight text-white">
+                Understanding <span class="bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400 bg-clip-text text-transparent italic font-normal">AI & Machine Learning</span>
+            </h1>
+            <p class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
+                Demystify the technology shaping our tomorrow. Explore key concepts through visual insights, compare paradigms, and evaluate your knowledge in real time.
+            </p>
+        </section>
+
+        <section aria-labelledby="cards-heading">
+            <h2 id="cards-heading" class="sr-only">Core Concepts</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                
+                <!-- Card 1: What is AI? -->
+                <article class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/20 text-brand-400 flex items-center justify-center text-xl mb-6 group-hover:bg-brand-500 group-hover:text-white transition-all duration-300 shadow-lg">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-white mb-3 group-hover:text-brand-300 transition-colors">What is AI?</h3>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            Artificial Intelligence (AI) is the broader discipline of engineering smart machines capable of simulating human cognition, reasoning, decision-making, and problem-solving.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-display font-bold text-brand-400">
+                        <span class="uppercase tracking-widest">Foundation</span>
+                        <i class="fa-solid fa-arrow-right opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all"></i>
+                    </div>
+                </article>
+
+                <!-- Card 2: What is Machine Learning? -->
+                <article class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center text-xl mb-6 group-hover:bg-purple-500 group-hover:text-white transition-all duration-300 shadow-lg">
+                            <i class="fa-solid fa-diagram-project"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors">What is Machine Learning?</h3>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            Machine Learning (ML) is a specialized branch of AI where systems discover patterns from data to learn autonomously and refine performance without hardcoded instructions.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-display font-bold text-purple-400">
+                        <span class="uppercase tracking-widest">Engine of AI</span>
+                        <i class="fa-solid fa-arrow-right opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all"></i>
+                    </div>
+                </article>
+
+                <!-- Card 3: Where is AI used? -->
+                <article class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center text-xl mb-6 group-hover:bg-cyan-500 group-hover:text-white transition-all duration-300 shadow-lg">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">Where is AI used?</h3>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            AI powers everyday experiences: recommendation algorithms, natural language assistants, automated diagnostics, self-driving platforms, and intelligent threat detection.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-display font-bold text-cyan-400">
+                        <span class="uppercase tracking-widest">Applications</span>
+                        <i class="fa-solid fa-arrow-right opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all"></i>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="glass-card rounded-2xl p-6 sm:p-8 border border-slate-800">
+            <div class="max-w-3xl mx-auto space-y-6">
+                <div class="text-center space-y-2">
+                    <h3 class="font-display text-3xl font-extrabold text-white">AI vs Machine Learning Overview</h3>
+                    <p class="text-slate-400 text-sm font-medium">Visualizing the hierarchy of intelligent systems</p>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="font-display font-bold text-lg text-brand-400 flex items-center gap-2">
+                                <i class="fa-solid fa-globe text-base"></i> Artificial Intelligence
+                            </span>
+                            <span class="text-[11px] font-display font-semibold px-2 py-0.5 rounded bg-brand-500/20 text-brand-300 uppercase tracking-wider">Broader Scope</span>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Encompasses rule-based logic, expert systems, robotics, computer vision, natural language processing, and machine learning algorithms.
+                        </p>
+                    </div>
+
+                    <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="font-display font-bold text-lg text-purple-400 flex items-center gap-2">
+                                <i class="fa-solid fa-chart-network text-base"></i> Machine Learning
+                            </span>
+                            <span class="text-[11px] font-display font-semibold px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 uppercase tracking-wider">Sub-field</span>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Focuses specifically on statistical techniques and neural networks that allow computers to extract knowledge directly from datasets.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="glass-card rounded-2xl border border-slate-800 p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+            <div class="max-w-3xl mx-auto space-y-8">
+                
+                <!-- Quiz Header -->
+                <div class="border-b border-slate-800 pb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div>
+                        <div class="flex items-center gap-2 text-brand-400 text-xs font-display font-bold uppercase tracking-widest mb-1">
+                            <i class="fa-solid fa-graduation-cap"></i> Interactive Evaluation
+                        </div>
+                        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white">Knowledge Check Quiz</h2>
+                        <p class="text-slate-400 text-sm mt-1">Test your knowledge with 3 quick questions.</p>
+                    </div>
+                    <div id="quiz-progress-badge" class="px-4 py-2 bg-slate-900 border border-slate-800 text-slate-300 rounded-xl text-xs font-display font-semibold flex items-center gap-2 self-start sm:self-auto">
+                        <i class="fa-solid fa-circle-notch text-brand-400 animate-spin" id="quiz-spinner" style="display:none;"></i>
+                        <span id="progress-text">0 / 3 Answered</span>
+                    </div>
+                </div>
+
+                <form id="quiz-form" class="space-y-8">
+                    
+                    <!-- Question 1 -->
+                    <div class="space-y-3">
+                        <label class="block font-display font-bold text-slate-100 text-lg sm:text-xl">
+                            <span class="text-brand-400 font-extrabold mr-1">1.</span> What is the accurate relationship between AI and Machine Learning?
+                        </label>
+                        <div class="grid grid-cols-1 gap-2.5">
+                            <label class="group flex items-center p-4 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-brand-500/50 hover:bg-slate-900 cursor-pointer transition-all duration-200">
+                                <input type="radio" name="q1" value="A" onchange="updateProgress()" class="w-4 h-4 text-brand-600 focus:ring-brand-500 border-slate-700 bg-slate-800">
+                                <span class="ml-3 text-sm sm:text-base text-slate-300 group-hover:text-white transition-colors">Machine Learning is a subset of AI.</span>
+                            </label>
+                            <label class="group flex items-center p-4 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-brand-500/50 hover:bg-slate-900 cursor-pointer transition-all duration-200">
+                                <input type="radio" name="q1" value="B" onchange="updateProgress()" class="w-4 h-4 text-brand-600 focus:ring-brand-500 border-slate-700 bg-slate-800">
+                                <span class="ml-3 text-sm sm:text-base text-slate-300 group-hover:text-white transition-colors">AI is a specialized subset of Machine Learning.</span>
+                            </label>
+                            <label class="group flex items-center p-4 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-brand-500/50 hover:bg-slate-900 cursor-pointer transition-all duration-200">
+                                <input type="radio" name="q1" value="C" onchange="updateProgress()" class="w-4 h-4 text-brand-600 focus:ring-brand-500 border-slate-700 bg-slate-800">
+                                <span class="ml-3 text-sm sm:text-base text-slate-300 group-hover:text-white transition-colors">They represent two identical and interchangeable concepts.</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="space-y-3">
+                        <label class="block font-display font-bold text-slate-100 text-lg sm:text-xl">
+                            <span class="text-purple-400 font-extrabold mr-1">2.</span> How does Machine Learning primarily accomplish computational tasks?
+                        </label>
+                        <div class="grid grid-cols-1 gap-2.5">
+                            <label class="group flex items-center p-4 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-purple-500/50 hover:bg-slate-900 cursor-pointer transition-all duration-200">
+                                <input type="radio" name="q2" value="A" onchange="updateProgress()" class="w-4 h-4 text-purple-600 focus:ring-purple-500 border-slate-700 bg-slate-800">
+                                <span class="ml-3 text-sm sm:text-base text-slate-300 group-hover:text-white transition-colors">By requiring programmers to manually program rules for every condition.</span>
+                            </label>
+                            <label class="group flex items-center p-4 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-purple-500/50 hover:bg-slate-900 cursor-pointer transition-all duration-200">
+                                <input type="radio" name="q2" value="B" onchange="updateProgress()" class="w-4 h-4 text-purple-600 focus:ring-purple-500 border-slate-700 bg-slate-800">
+                                <span class="ml-3 text-sm sm:text-base text-slate-300 group-hover:text-white transition-colors">By identifying patterns and statistical structures within data.</span>
+                            </label>
+                            <label class="group flex items-center p-4 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-purple-500/50 hover:bg-slate-900 cursor-pointer transition-all duration-200">
+                                <input type="radio" name="q2" value="C" onchange="updateProgress()" class="w-4 h-4 text-purple-600 focus:ring-purple-500 border-slate-700 bg-slate-800">
+                                <span class="ml-3 text-sm sm:text-base text-slate-300 group-hover:text-white transition-colors">By executing continuous random calculations without data input.</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="space-y-3">
+                        <label class="block font-display font-bold text-slate-100 text-lg sm:text-xl">
+                            <span class="text-cyan-400 font-extrabold mr-1">3.</span> Which of the following is a real-world application of AI?
+                        </label>
+                        <div class="grid grid-cols-1 gap-2.5">
+                            <label class="group flex items-center p-4 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-cyan-500/50 hover:bg-slate-900 cursor-pointer transition-all duration-200">
+                                <input type="radio" name="q3" value="A" onchange="updateProgress()" class="w-4 h-4 text-cyan-600 focus:ring-cyan-500 border-slate-700 bg-slate-800">
+                                <span class="ml-3 text-sm sm:text-base text-slate-300 group-hover:text-white transition-colors">Personalized content recommendation engines on streaming apps.</span>
+                            </label>
+                            <label class="group flex items-center p-4 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-cyan-500/50 hover:bg-slate-900 cursor-pointer transition-all duration-200">
+                                <input type="radio" name="q3" value="B" onchange="updateProgress()" class="w-4 h-4 text-cyan-600 focus:ring-cyan-500 border-slate-700 bg-slate-800">
+                                <span class="ml-3 text-sm sm:text-base text-slate-300 group-hover:text-white transition-colors">Natural language voice assistants like Siri or Alexa.</span>
+                            </label>
+                            <label class="group flex items-center p-4 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-cyan-500/50 hover:bg-slate-900 cursor-pointer transition-all duration-200">
+                                <input type="radio" name="q3" value="C" onchange="updateProgress()" class="w-4 h-4 text-cyan-600 focus:ring-cyan-500 border-slate-700 bg-slate-800">
+                                <span class="ml-3 text-sm sm:text-base text-slate-300 group-hover:text-white transition-colors">All of the above.</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Submit & Reset Action Row -->
+                    <div class="pt-4 flex flex-col sm:flex-row items-center gap-4">
+                        <button type="button" id="submit-btn" onclick="checkQuiz()" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-display font-bold rounded-xl shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 transition-all active:scale-98 flex items-center justify-center gap-2 tracking-wide">
+                            <span>Submit Answers</span>
+                            <i class="fa-solid fa-paper-plane text-xs"></i>
+                        </button>
+
+                        <button type="button" id="reset-btn" onclick="resetQuiz()" class="w-full sm:w-auto px-6 py-3.5 bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-800 font-display font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-rotate-right text-xs"></i>
+                            <span>Reset</span>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Feedback Banner -->
+                <div id="quiz-result" class="hidden transition-all duration-500 transform"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-slate-800/80 bg-slate-950 py-8 text-center text-xs text-slate-500">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-atom text-brand-400"></i>
+                <span>© 2026 AI Academy Learning Hub</span>
+            </div>
+            <p>Designed with modern responsive glassmorphism & Tailwind CSS</p>
+        </div>
+    </footer>
+
+    <script>
+        function updateProgress() {
+            let count = 0;
+            for (let i = 1; i <= 3; i++) {
+                if (document.querySelector(`input[name="q${i}"]:checked`)) {
+                    count++;
+                }
+            }
+            const progressBadge = document.getElementById('progress-text');
+            progressBadge.innerText = `${count} / 3 Answered`;
+            
+            const badgeContainer = document.getElementById('quiz-progress-badge');
+            if (count === 3) {
+                badgeContainer.className = "px-4 py-2 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded-xl text-xs font-semibold flex items-center gap-2 self-start sm:self-auto";
+            } else {
+                badgeContainer.className = "px-4 py-2 bg-slate-900 border border-slate-800 text-slate-300 rounded-xl text-xs font-medium flex items-center gap-2 self-start sm:self-auto";
+            }
+        }
+
+        function checkQuiz() {
+            const answers = {
+                q1: 'A',
+                q2: 'B',
+                q3: 'C'
+            };
+
+            let score = 0;
+            let total = 3;
+            let answeredAll = true;
+
+            for (let i = 1; i <= total; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (!selected) {
+                    answeredAll = false;
+                    break;
+                }
+            }
+
+            const resultContainer = document.getElementById('quiz-result');
+
+            if (!answeredAll) {
+                resultContainer.className = "p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-sm font-medium flex items-center gap-3";
+                resultContainer.innerHTML = `
+                    <i class="fa-solid fa-circle-exclamation text-amber-400 text-xl flex-shrink-0"></i>
+                    <span>Please answer all 3 questions before submitting your quiz!</span>
+                `;
+                resultContainer.classList.remove('hidden');
+                return;
+            }
+
+            for (let i = 1; i <= total; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`).value;
+                if (selected === answers[`q${i}`]) {
+                    score++;
+                }
+            }
+
+            resultContainer.classList.remove('hidden');
+            
+            if (score === total) {
+                resultContainer.className = "p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-200 space-y-2 shadow-xl";
+                resultContainer.innerHTML = `
+                    <div class="flex items-center gap-3 font-bold text-lg text-emerald-400">
+                        <i class="fa-solid fa-circle-check text-2xl"></i> Perfect Score! (${score}/${total})
+                    </div>
+                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                        Outstanding work! You have a solid grasp of the core differences between Artificial Intelligence and Machine Learning.
+                    </p>
+                `;
+            } else if (score >= 1) {
+                resultContainer.className = "p-6 rounded-2xl bg-brand-500/10 border border-brand-500/30 text-brand-200 space-y-2 shadow-xl";
+                resultContainer.innerHTML = `
+                    <div class="flex items-center gap-3 font-bold text-lg text-brand-400">
+                        <i class="fa-solid fa-chart-pie text-2xl"></i> Good Attempt! (${score}/${total})
+                    </div>
+                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                        You scored ${score} out of ${total}. Review the information cards above to reinforce your understanding and try for 3/3!
+                    </p>
+                `;
+            } else {
+                resultContainer.className = "p-6 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-200 space-y-2 shadow-xl";
+                resultContainer.innerHTML = `
+                    <div class="flex items-center gap-3 font-bold text-lg text-rose-400">
+                        <i class="fa-solid fa-circle-xmark text-2xl"></i> Keep Practicing! (${score}/${total})
+                    </div>
+                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                        Don't worry! Read through the information cards again and give it another try.
+                    </p>
+                `;
+            }
+
+            resultContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function resetQuiz() {
+            document.getElementById('quiz-form').reset();
+            const resultContainer = document.getElementById('quiz-result');
+            resultContainer.classList.add('hidden');
+            updateProgress();
+        }
+    </script>
+</body>
+</html>
