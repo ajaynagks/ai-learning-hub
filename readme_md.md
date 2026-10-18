@@ -1,0 +1,71 @@
+# 🧠 AI Academy: Interactive AI & Machine Learning Learning Hub
+
+An interactive, responsive single-page web application designed to introduce users to foundational concepts in **Artificial Intelligence (AI)** and **Machine Learning (ML)** through modern visual hierarchy and a self-assessment knowledge quiz.
+
+---
+
+## ✨ Features
+
+- **🎨 Modern Visual Design:** Built with a modern dark-mode theme, glassmorphism cards, ambient background glows, and responsive typography using Google Fonts (**Outfit** for headings and **Plus Jakarta Sans** for body text).
+- **📚 Core Concept Modules:** Dedicated visual cards breaking down:
+  - *What is AI?*
+  - *What is Machine Learning?*
+  - *Where is AI used?*
+- **⚖️ Visual Comparison Section:** Side-by-side structural breakdown clarifying the relationship between Artificial Intelligence as a broader field and Machine Learning as a specialized sub-field.
+- **📝 Interactive Quiz:** A 3-question evaluation tool equipped with:
+  - Real-time progress tracking badge.
+  - Form validation preventing incomplete submissions.
+  - Dynamic score calculation with custom feedback banners.
+  - Quick-reset capability.
+- **📱 Fully Responsive:** Optimized layout using Tailwind CSS for desktops, tablets, and mobile screens.
+
+---
+
+## 🛠️ Technologies Used
+
+- **HTML5:** Semantic structural layout.
+- **Tailwind CSS (CDN):** Utility-first styling, glassmorphism UI effects, custom animations, and responsive breakpoints.
+- **JavaScript (Vanilla ES6):** State management for quiz logic, progress calculation, dynamic DOM manipulation, and UI feedback handling.
+- **Google Fonts:** `Outfit` & `Plus Jakarta Sans`.
+- **FontAwesome Icons:** Visual iconography throughout components.
+
+---
+
+## 🚀 Live Demo & Deployment
+
+You can view the live site hosted on GitHub Pages:  
+👉 **[Insert Your GitHub Pages Link Here]**
+
+---
+
+## 💻 Local Setup & Development
+
+No build tools or server setup required! To run this project locally:
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY-NAME.git
+   ```
+2. **Navigate to the project directory:**
+   ```bash
+   cd YOUR-REPOSITORY-NAME
+   ```
+3. **Open the website:**
+   - Double-click `index.html` to open it in any modern web browser.
+   - Alternatively, open with Live Server extension in Visual Studio Code.
+
+---
+
+## 📁 Repository Structure
+
+```text
+.
+├── index.html        # Main interactive web application
+└── README.md         # Project documentation and details
+```
+
+---
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](LICENSE).
